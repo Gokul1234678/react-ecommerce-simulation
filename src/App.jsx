@@ -34,60 +34,69 @@ const Layout = ({ children }) => {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-       {/* ✅ Wrap routes inside Layout to control Navbar visibility */}
-      <Layout>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <ProtectedRoute>
-                <Cart />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/wishlist"
-            element={
-              <ProtectedRoute>
-                <Wishlist />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/orders"
-            element={
-              <ProtectedRoute>
-                <Orders />
-              </ProtectedRoute>
-            }
-          />
+    <>
 
-          {/* ✅ Admin route added */}
-           <Route
-        path="/admin"
-        element={
-          // <AdminRoute>
-            <AdminPage />
-          // </AdminRoute>
-        }
-      />
+      <AuthProvider>
+        <BrowserRouter>
+          {/* ✅ Wrap routes inside Layout to control Navbar visibility */}
+          <Layout>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <Home />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute>
+                    <Cart />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/wishlist"
+                element={
+                  <ProtectedRoute>
+                    <Wishlist />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/orders"
+                element={
+                  <ProtectedRoute>
+                    <Orders />
+                  </ProtectedRoute>
+                }
+              />
 
-          
-        </Routes>
-        </Layout>
-      </BrowserRouter>
+              {/* ✅ Admin route added */}
+              <Route
+                path="/admin"
+                element={
+                  // <AdminRoute>
+                  <AdminPage />
+                  // </AdminRoute>
+                }
+              />
 
-    </AuthProvider>
+
+            </Routes>
+          </Layout>
+
+        </BrowserRouter>
+
+      </AuthProvider>
+
+      <footer style={{ textAlign: "center", padding: "20px", marginTop: "40px", color: "#888" }}>
+        © {new Date().getFullYear()} Created by <strong>Gokul Selvan</strong>
+      </footer>
+
+    </>
   );
 }
